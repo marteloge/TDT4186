@@ -22,6 +22,10 @@ public class Simulator implements Constants
 	/** The average length between process arrivals */
 	private long avgArrivalInterval;
 	// Add member variables as needed
+	
+	private Cpu cpu;
+	private Io io;
+	
 
 	/**
 	 * Constructs a scheduling simulator with the given parameters.
@@ -45,6 +49,10 @@ public class Simulator implements Constants
 		memory = new Memory(memoryQueue, memorySize, statistics);
 		clock = 0;
 		// Add code as needed
+		
+		cpu = new Cpu(cpuQueue, maxCpuTime, statistics, gui);
+		io = new Io(ioQueue, avgIoTime, statistics, gui);
+		
     }
 
     /**
@@ -135,9 +143,12 @@ public class Simulator implements Constants
 			// TODO: Add this process to the CPU queue!
 			// Also add new events to the event queue if needed
 
+			
+			
 			// Since we haven't implemented the CPU and I/O device yet,
 			// we let the process leave the system immediately, for now.
-			memory.processCompleted(p);
+//			memory.processCompleted(p);
+			
 			// Try to use the freed memory:
 			flushMemoryQueue();
 			// Update statistics
@@ -152,7 +163,7 @@ public class Simulator implements Constants
 	 * Simulates a process switch.
 	 */
 	private void switchProcess() {
-		// Incomplete
+		
 	}
 
 	/**
@@ -160,6 +171,7 @@ public class Simulator implements Constants
 	 */
 	private void endProcess() {
 		// Incomplete
+		
 	}
 
 	/**
