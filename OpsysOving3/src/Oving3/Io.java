@@ -1,9 +1,22 @@
 package Oving3;
 
-public class Io {
 
-	public Io(Queue ioQueue, long avgIoTime, Statistics statistics, Gui gui) {
-		// TODO Auto-generated constructor stub
+public class Io {
+	
+	private Queue ioQueue;
+	private Statistics statistics;
+	private long ioWait;
+	private Gui gui;
+
+	private Process activeProcess = null;
+
+
+	public IO(Queue ioQueue, Statistics statistics, EventQueue eventQueue, long ioWait, Gui g) {
+		this.ioQueue = ioQueue;
+		this.statistics = statistics;
+		this.gui = g;
+		this.ioWait = ioWait;
+
 	}
 
 }
